@@ -1,0 +1,33 @@
+include head.pug 
+
+body 
+    form(action="/", method="POST", class="exampleForm")
+        .form-header.bottom-margin
+            h2 Please Fill in the Form
+        
+        .erorr-messages
+            if errors != undefined        
+                if errors.length !== 0
+                    each val in errors 
+                        p.opacity #{val.msg}
+        
+        .Fname-wrapper.bottom-margin 
+            input(type="text", name="name", placeholder="Full Name", value=`${(data != undefined) ? data.name : ""}`)
+
+        .age-wrapper.bottom-margin 
+            input(type="text", name="age", placeholder="Age" value=`${(data != undefined) ? data.age : ""}`)
+
+        .phone-wrapper.bottom-margin 
+            input(type="text", name="phone", placeholder="Phone Number" value=`${(data != undefined) ? data.phone : ""}`)
+
+        .Email-wrapper.bottom-margin 
+            input(type="email", name="email", placeholder="Email Address" value=`${(data != undefined) ? data.email : ""}`)
+        
+        .message-wrapper.bottom-margin 
+            textarea(name="message", placeholder="Message") #{(data != undefined) ? data.message : ""}
+
+        .submit-wrapper.bottom-margin 
+            input(type="submit", name="submit")
+        
+        .submit-wrapper.bottom-margin 
+            a(href="/records", alt="Records") Records

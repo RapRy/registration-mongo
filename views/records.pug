@@ -1,0 +1,32 @@
+include head.pug 
+
+body 
+    section.users
+        h2 Registered Users
+
+        if members.length === 0
+            h4 There are no records
+        else 
+            each member in members 
+                .user 
+                    .userInfo
+                        ul 
+                            li 
+                                span.label Name:&nbsp;
+                                span.username #{member.name}
+                            li 
+                                span.label Age:&nbsp;
+                                span.userAge #{member.age}
+                            li 
+                                span.label Phone Number:&nbsp;
+                                span.userNumber #{member.phone}
+                            li 
+                                span.label Email:&nbsp;
+                                span.userEmail #{member.email}
+                    .userMessage
+                        span.label Message:
+                        p #{member.message}
+
+        
+        .submit-wrapper.bottom-margin 
+            a(href="/", alt="Add") Add New Member
